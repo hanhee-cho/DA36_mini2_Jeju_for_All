@@ -84,34 +84,26 @@ import streamlit as st
 
 # 첫 번째 컨테이너
 with st.container():
-    st.header("첫 번째 컨테이너")
-    # 두 열로 나누기
     col1, col2 = st.columns(2)
     with col1:
-        st.write("첫 번째 열 내용")
-        st.button("버튼 1")
+        st.image("data/9.81파크.jpg", caption="9.81 파크", use_column_width=True)  # 이미지 경로를 실제 이미지 파일 경로로 바꾸세요.
+    # 두 번째 열에 다른 내용 추가
     with col2:
-        st.write("두 번째 열 내용")
-        st.button("버튼 2")
+        st.markdown("[여기 클릭하여 여행지 정보 보기](https://www.981park.com/)", unsafe_allow_html=True)
 
 #st.subheader('🐒 추가 추천 장소')
-st.markdown("<h5>🐒 추가 추천 장소</h5>", unsafe_allow_html=True)
+st.markdown("<br>,<h5>🏝️ 더 많은 추천 장소🏝️ </h5>", unsafe_allow_html=True)
 # 두 번째 컨테이너
 with st.container():
-    st.header("두 번째 컨테이너")
-
-    # 두 열로 나누기
     col1, col2 = st.columns(2)
     with col1:
-        st.write("첫 번째 열 내용 2")
-        st.checkbox("체크박스 1")
+        st.image("data/그리스신화박물관.jpg", caption="9.81 파크", use_column_width=True)  # 이미지 경로를 실제 이미지 파일 경로로 바꾸세요.
+    # 두 번째 열에 다른 내용 추가
     with col2:
-        st.write("두 번째 열 내용 2")
-        st.checkbox("체크박스 2")
+        st.markdown("[여기 클릭하여 여행지 정보 보기](http://www.greekmythology.co.kr/default/)", unsafe_allow_html=True)
 
 # 세 번째 컨테이너
 with st.container():
-    st.header("세 번째 컨테이너")
     # 두 열로 나누기
     col1, col2 = st.columns(2)
     with col1:
