@@ -27,13 +27,13 @@ with st.sidebar:
 
     # 연령대 선택
     age_group = st.selectbox(
-        "- 연령대",
+        " - 연령대",
         ("10대", "20대", "30대", "40대", "50대", "60대 이상")
     )
 
     # 성별 선택
     gender = st.radio(
-        "- 성별",
+        " - 성별",
         ("여성", "남성")
     )
 
@@ -48,12 +48,12 @@ with st.sidebar:
 
     # 여행 스타일 선택 (여러 개 선택 가능)
     travel_style = st.multiselect(
-        "- 여행 스타일",
+        " - 여행 스타일",
         ["자연 탐방", "도시 탐험", "문화 체험", "휴식", "액티비티", "미식 탐방"]
     )
 
     # Barrier Free 옵션 체크박스
-    st.write("- 장애인 편의 시설")
+    st.write(" - 장애인 편의 시설")
     barrier_free_options = {
         "장애인 주차장": st.checkbox("장애인 주차장"),
         "장애인 화장실": st.checkbox("장애인 화장실"),
