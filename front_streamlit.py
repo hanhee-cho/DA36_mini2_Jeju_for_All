@@ -88,20 +88,20 @@ with st.container():
     col1, col2 = st.columns([1, 2])  # 첫 번째 열을 두 배 더 넓게 설정
     with col1:
         st.image("data/9.81파크.jpg", caption="< 9.81 파크 >", use_column_width=True)
+
+    # 두 번째 열에 다른 내용 추가
+    with col2:
         st.write("9.81파크는 제주도에 위치한 특별한 테마파크로, '중력'이라는 흥미로운 주제를 바탕으로 다양한 체험과 놀이를 제공하는 공간입니다. "
                  "저희 파크는 자연과 어우러진 여러 레포츠 활동과 체험 프로그램을 통해 모든 연령대의 방문객들에게 즐거운 경험을 선사하고 있습니다. "
                  "짚라인, 회전 기구 등 다양한 액티비티가 준비되어 있어 가족 단위 방문객부터 친구들과 함께 오신 분들까지 모두 만족하실 수 있습니다."
                  "저희 홈페이지에서는 파크의 다양한 시설과 프로그램에 대한 상세한 정보는 물론, 예약 안내와 이벤트 소식도 확인하실 수 있습니다.")
-    # 두 번째 열에 다른 내용 추가
-    with col2:
-        # st.markdown("[여기 클릭하여 여행지 정보 보기](https://www.981park.com/)", unsafe_allow_html=True)
         st.markdown(
             """
             <style>
             .link-button {
                 display: inline-block;
                 background-color: #1a1d53;
-                color: white;
+                color: #ffffff;
                 padding: 10px 20px;
                 text-align: center;
                 text-decoration: none;
@@ -109,7 +109,7 @@ with st.container():
                 font-size: 16px;
             }
             .link-button:hover {
-                background-color: #45a049;
+                background-color: #5fd6f3;
             }
             </style>
             <a class="link-button" href="https://www.981park.com/" target="_blank">Link</a>
@@ -119,23 +119,21 @@ with st.container():
 st.markdown("<br><h5>️ 더 많은 추천 장소 ➡️ </h5>", unsafe_allow_html=True)
 # 두 번째 컨테이너
 with st.container():
-    col1, col2 = st.columns([1, 3])  
+    col1, col2 = st.columns([1, 3])
     with col1:
         st.image("data/그리스신화박물관.jpg", caption="< 그리스 신화 박물관 >", use_column_width=True)  # 이미지 경로를 실제 이미지 파일 경로로 바꾸세요.
     # 두 번째 열에 다른 내용 추가
     with col2:
         st.write( "제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 들어선 그리스신화박물관은 대지 2만평, "
     "연건평 1000평 규모로 유럽 유명 박물관이 소장한 그리스신화 관련 작품만을 엄선해 3년여의 재현 과정을 거쳐 선보이는 "
-    "세계 최초의 그리스신화 전문 박물관이다. 바티칸 등 서양 주요 박물관 및 미술관의 그리스신화 주제의 유명 명화와 "
-    "대리석 조각상 등 총 200여 점을 재현해 놓아 유럽에 가지 않고도 유럽 유명 박물관 20여 곳에 흩어져 있는 "
-    "그리스로마신화 관련 소장품을 제주에서 생동감 있게 관람할 수 있다.")
+    "세계 최초의 그리스신화 전문 박물관이다. 더보기..")
         st.markdown("[여기 클릭하여 여행지 정보 보기](http://www.greekmythology.co.kr/default/)", unsafe_allow_html=True)
 
-# 세 번째 컨테이너
-with st.container():
-    # 두 열로 나누기
-    col1, col2 = st.columns([1, 1])  # 두 번째와 세 번째 컨테이너의 열은 동일한 크기로 설정
-    with col1:
-        st.write("첫 번째 열 내용 3")
-    with col2:
-        st.write("두 번째 열 내용 3")
+# # 세 번째 컨테이너
+# with st.container():
+#     # 두 열로 나누기
+#     col1, col2 = st.columns([1, 1])  # 두 번째와 세 번째 컨테이너의 열은 동일한 크기로 설정
+#     with col1:
+#         st.write("첫 번째 열 내용 3")
+#     with col2:
+#         st.write("두 번째 열 내용 3")
