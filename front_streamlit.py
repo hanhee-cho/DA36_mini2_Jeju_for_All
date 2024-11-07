@@ -55,9 +55,12 @@ with st.sidebar:
     # Barrier Free 옵션 체크박스
     st.write("베리어 프리 여부")
     barrier_free_options = {
-        "시각 장애인 지원": st.checkbox("시각 장애인"),
-        "청각 장애인 지원": st.checkbox("청각 장애인"),
-        "지체 장애인 지원": st.checkbox("지체 장애인")
+        "장애인 주차장": st.checkbox("장애인 주차장"),
+        "장애인 화장실": st.checkbox("장애인 화장실"),
+        "휠체어 보유": st.checkbox("휠체어 보유"),
+        "안내견 동반 가능": st.checkbox("안내견 동반 가능"),
+        "점자 안내": st.checkbox("점자 안내"),
+        "한국어 음성 안내": st.checkbox("한국어 음성 안내"),
     }
 selected_barrier_free = [key for key, value in barrier_free_options.items() if value]
 
