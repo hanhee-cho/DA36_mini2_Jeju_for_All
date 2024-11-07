@@ -84,10 +84,14 @@ import streamlit as st
 
 # 첫 번째 컨테이너
 with st.container():
-    col1, col2 = st.columns(2)
-    # col1, col2 = st.columns([2, 1])  # 첫 번째 열을 두 배 더 넓게 설정
+    # col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1, 2])  # 첫 번째 열을 두 배 더 넓게 설정
     with col1:
-        st.image("data/9.81파크.jpg", caption="< 9.81 파크 >", use_column_width=True)  # 이미지 경로를 실제 이미지 파일 경로로 바꾸세요.
+        st.image("data/9.81파크.jpg", caption="< 9.81 파크 >", use_column_width=True)
+        st.write("9.81파크는 제주도에 위치한 특별한 테마파크로, '중력'이라는 흥미로운 주제를 바탕으로 다양한 체험과 놀이를 제공하는 공간입니다. "
+                 "저희 파크는 자연과 어우러진 여러 레포츠 활동과 체험 프로그램을 통해 모든 연령대의 방문객들에게 즐거운 경험을 선사하고 있습니다. "
+                 "짚라인, 회전 기구 등 다양한 액티비티가 준비되어 있어 가족 단위 방문객부터 친구들과 함께 오신 분들까지 모두 만족하실 수 있습니다."
+                 "저희 홈페이지에서는 파크의 다양한 시설과 프로그램에 대한 상세한 정보는 물론, 예약 안내와 이벤트 소식도 확인하실 수 있습니다.")
     # 두 번째 열에 다른 내용 추가
     with col2:
         # st.markdown("[여기 클릭하여 여행지 정보 보기](https://www.981park.com/)", unsafe_allow_html=True)
@@ -96,7 +100,7 @@ with st.container():
             <style>
             .link-button {
                 display: inline-block;
-                background-color: #4CAF50;
+                background-color: #1a1d53;
                 color: white;
                 padding: 10px 20px;
                 text-align: center;
@@ -108,14 +112,14 @@ with st.container():
                 background-color: #45a049;
             }
             </style>
-            <a class="link-button" href="https://www.981park.com/" target="_blank">여기 클릭하여 여행지 정보 보기</a>
+            <a class="link-button" href="https://www.981park.com/" target="_blank">Link</a>
             """, unsafe_allow_html=True
         )
 
 st.markdown("<br><h5>️ 더 많은 추천 장소 ➡️ </h5>", unsafe_allow_html=True)
 # 두 번째 컨테이너
 with st.container():
-    col1, col2 = st.columns([2, 1])  # 첫 번째 열을 두 배 더 넓게 설정
+    col1, col2 = st.columns([1, 3])  
     with col1:
         st.image("data/그리스신화박물관.jpg", caption="< 그리스 신화 박물관 >", use_column_width=True)  # 이미지 경로를 실제 이미지 파일 경로로 바꾸세요.
     # 두 번째 열에 다른 내용 추가
