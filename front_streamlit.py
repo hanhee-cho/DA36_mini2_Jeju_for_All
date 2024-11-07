@@ -87,7 +87,7 @@ with st.container():
     # col1, col2 = st.columns(2)
     col1, col2 = st.columns([1, 1.3])  # 첫 번째 열을 두 배 더 넓게 설정
     with col1:
-        st.image("data/9.81파크.jpg", caption="< 9.81 파크 >", use_column_width=True)
+        st.image("data/9.81파크.jpg", caption="< 9.81 파크 >",  width=400)
 
     # 두 번째 열에 다른 내용 추가
     with col2:
@@ -126,7 +126,7 @@ with st.container():
     # 두 번째 열에 다른 내용 추가
     with col2:
         st.write("**#1**")
-        st.write( "제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 들어선 그리스신화박물관은 대지 2만평, 연건평 1000평 규모로 유럽 유명 박물관이 소장한 그리스신화 관련 더보기..")
+        st.write( "제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 들어선 그리스신화박물관은 대지 2만평, 연건평 1000평 규모로 유럽 유명 박물관이 소장한 그리스신화 관련 _더보기_~")
         st.markdown(
             """
             <style>
