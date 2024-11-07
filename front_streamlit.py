@@ -189,37 +189,6 @@ st.write('-'*30)
 # # 다른 페이지로 이동 버튼
 # if st.button("더 많은 추천 장소 보러 가기🫠"):
 #     st.experimental_set_query_params(page="other")
-
-
-# # 첫 번째 페이지 함수 (메인 페이지)
-# def main_page():
-#     # 다른 페이지로 이동하는 버튼
-#     if st.button("더 많은 추천 장소 보러 가기🫠"):
-#         st.session_state.page = "other"  # 상태를 "other"로 변경
-#         st.rerun()  # 페이지 새로고침
-#
-# # 두 번째 페이지 함수 (그리스신화박물관 페이지)
-# def other_page():
-#     st.title("그리스신화박물관")
-#     st.write(
-#         "제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 들어선 그리스신화박물관은 대지 2만평, 연건평 1000평 규모로 유럽 유명 박물관이 소장한 그리스신화 관련 작품만을 엄선해 3년여의 재현 과정을 거쳐 선보이는 세계 최초의 그리스신화 전문 박물관입니다.")
-#
-#     # 박물관 이미지 추가
-#     st.image("data/그리스신화박물관.jpg", caption="그리스신화박물관", use_column_width=True)
-#     # 메인 페이지로 돌아가는 버튼
-#     if st.button("메인 페이지로 돌아가기"):
-#         st.session_state.page = "main"  # 상태를 "main"으로 변경
-#         st.rerun()  # 페이지 새로고침
-# # 페이지 선택
-# if "page" not in st.session_state:
-#     st.session_state.page = "main"  # 기본 페이지는 "main"
-#
-# # 페이지에 맞는 함수 실행
-# if st.session_state.page == "main":
-#     main_page()
-# elif st.session_state.page == "other":
-#     other_page()
-#
 #
 
 # 세션 상태에 'page'가 없으면 기본값을 1로 설정
@@ -355,7 +324,10 @@ if st.session_state['page'] == 1:
                 """, unsafe_allow_html=True
             )
     st.write('-' * 30)
-    st.markdown("<br><h5>️ 더 많은 추천 장소 ➡️ </h5>", unsafe_allow_html=True)
+    # st.markdown("<br><h5>️ 더 많은 추천 장소 ➡️ </h5>", unsafe_allow_html=True)
+
+    if st.button("더 많은 추천 장소 보러 가기🫠"):
+        go_to_page(2)
     # 두 번째 컨테이너
     with st.container():
         col1, col2 = st.columns([1, 3])
@@ -419,8 +391,8 @@ if st.session_state['page'] == 1:
                 <a class="link-button" href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=a1b8c604-0c55-4127-ba19-86d8b36ec947" target="_blank">Link</a>
                 """, unsafe_allow_html=True
             )
-    if st.button("Go to Page 2"):
-        go_to_page(2)
+    # if st.button("더 많은 추천 장소 보러 가기🫠"):
+    #     go_to_page(2)
 
 elif st.session_state['page'] == 2:
     st.title("그 외 추천 장소")
