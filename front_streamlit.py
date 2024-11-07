@@ -87,7 +87,7 @@ with st.container():
     # col1, col2 = st.columns(2)
     col1, col2 = st.columns([1, 1.3])  # 첫 번째 열을 두 배 더 넓게 설정
     with col1:
-        st.image("data/9.81파크.jpg", caption="< 9.81 파크 >",  width=400)
+        st.image("data/9.81파크.jpg", caption="< 9.81 파크 >",  width=250, height=300)
 
     # 두 번째 열에 다른 내용 추가
     with col2:
