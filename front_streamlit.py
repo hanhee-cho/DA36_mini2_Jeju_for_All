@@ -53,7 +53,7 @@ with st.sidebar:
     )
 
     # Barrier Free 옵션 체크박스
-    st.write("베리어 프리 여부")
+    st.write("장애인 편의 시설")
     barrier_free_options = {
         "장애인 주차장": st.checkbox("장애인 주차장"),
         "장애인 화장실": st.checkbox("장애인 화장실"),
@@ -74,9 +74,47 @@ st.markdown(f"""
 - **성별**: {gender}
 - **동반객 인원수**: {companion_count}명
 - **여행 스타일**: {", ".join(travel_style) if travel_style else "선택 없음"}
-- **베리어프리 옵션**: {", ".join(selected_barrier_free) if selected_barrier_free else "선택 없음"}
+- **장애인 편의 시설**: {", ".join(selected_barrier_free) if selected_barrier_free else "선택 없음"}
 ---
 """)
 
 st.subheader('📌 추천 장소')
 
+import streamlit as st
+
+# 첫 번째 컨테이너
+with st.container():
+    st.header("첫 번째 컨테이너")
+    # 두 열로 나누기
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write("첫 번째 열 내용")
+        st.button("버튼 1")
+    with col2:
+        st.write("두 번째 열 내용")
+        st.button("버튼 2")
+
+#st.subheader('🐒 추가 추천 장소')
+st.markdown("<h5>🐒 추가 추천 장소</h5>", unsafe_allow_html=True)
+# 두 번째 컨테이너
+with st.container():
+    st.header("두 번째 컨테이너")
+
+    # 두 열로 나누기
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write("첫 번째 열 내용 2")
+        st.checkbox("체크박스 1")
+    with col2:
+        st.write("두 번째 열 내용 2")
+        st.checkbox("체크박스 2")
+
+# 세 번째 컨테이너
+with st.container():
+    st.header("세 번째 컨테이너")
+    # 두 열로 나누기
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write("첫 번째 열 내용 3")
+    with col2:
+        st.write("두 번째 열 내용 3")
