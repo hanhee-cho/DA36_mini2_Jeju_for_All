@@ -78,15 +78,16 @@ st.markdown(f"""
 ---
 """)
 
-st.subheader('📌 추천 장소')
+# st.subheader('📌 놓칠 수 없는 명소')
 
 import streamlit as st
 
 # 첫 번째 컨테이너
 with st.container():
     # col1, col2 = st.columns(2)
-    col1, col2 = st.columns([1, 2])  # 첫 번째 열을 두 배 더 넓게 설정
+    col1, col2 = st.columns([1, 1.3])  # 첫 번째 열을 두 배 더 넓게 설정
     with col1:
+        st.subheader('📌 놓칠 수 없는 명소')
         st.image("data/9.81파크.jpg", caption="< 9.81 파크 >", use_column_width=True)
 
     # 두 번째 열에 다른 내용 추가
@@ -101,7 +102,7 @@ with st.container():
             .link-button {
                 display: inline-block;
                 background-color: #1a1d53;
-                color: #ffffff;
+                color: #ffffff !important;
                 padding: 10px 20px;
                 text-align: center;
                 text-decoration: none;
@@ -124,11 +125,29 @@ with st.container():
         st.image("data/그리스신화박물관.jpg", caption="< 그리스 신화 박물관 >", use_column_width=True)  # 이미지 경로를 실제 이미지 파일 경로로 바꾸세요.
     # 두 번째 열에 다른 내용 추가
     with col2:
+        st.write("**#1**")
         st.write( "제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 들어선 그리스신화박물관은 대지 2만평, "
-    "연건평 1000평 규모로 유럽 유명 박물관이 소장한 그리스신화 관련 작품만을 엄선해 3년여의 재현 과정을 거쳐 선보이는 "
-    "세계 최초의 그리스신화 전문 박물관이다. 더보기..")
-        st.markdown("[여기 클릭하여 여행지 정보 보기](http://www.greekmythology.co.kr/default/)", unsafe_allow_html=True)
-
+    "연건평 1000평 규모로 유럽 유명 박물관이 소장한 그리스신화 관련 더보기..")
+      st.markdown(
+            """
+            <style>
+            .link-button {
+                display: inline-block;
+                background-color: #1a1d53;
+                color: #ffffff !important;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+            .link-button:hover {
+                background-color: #5fd6f3;
+            }
+            </style>
+            <a class="link-button" href="http://www.greekmythology.co.kr/default/" target="_blank">Link</a>
+            """, unsafe_allow_html=True
+        )
 # # 세 번째 컨테이너
 # with st.container():
 #     # 두 열로 나누기
