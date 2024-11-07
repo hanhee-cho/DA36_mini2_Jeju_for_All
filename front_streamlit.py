@@ -92,7 +92,7 @@ with st.container():
         st.markdown("[여기 클릭하여 여행지 정보 보기](https://www.981park.com/)", unsafe_allow_html=True)
 
 #st.subheader('🐒 추가 추천 장소')
-st.markdown("<br>,<h5>🏝️ 더 많은 추천 장소🏝️ </h5>", unsafe_allow_html=True)
+st.markdown("<br><h5>🏝️ 더 많은 추천 장소🏝️ </h5>", unsafe_allow_html=True)
 # 두 번째 컨테이너
 with st.container():
     col1, col2 = st.columns(2)
