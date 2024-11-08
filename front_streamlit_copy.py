@@ -1,13 +1,16 @@
 import streamlit as st
 
+# 세션 상태에 'page'가 없으면 기본값을 1로 설정
 if 'page' not in st.session_state:
     st.session_state['page'] = 1
 # 페이지 변경 함수
+
 def go_to_page(page_num):
     st.session_state['page'] = page_num
-
 # 페이지별 내용 표시
 if st.session_state['page'] == 1:
+    # st.title("Page 1")
+    # st.write("This is the content of Page 1.")
     import streamlit as st
 
     # 배경색 설정 (고정)
@@ -76,7 +79,6 @@ if st.session_state['page'] == 1:
 
     # 첫 번째 구간
     # 선택된 옵션 - 메인 페이지에 표시
-
     st.subheader('📌 여행객 정보')
     st.markdown(f"""
     - **연령대**: {age_group}
@@ -122,6 +124,7 @@ if st.session_state['page'] == 1:
                 """, unsafe_allow_html=True
             )
     st.write('-' * 30)
+    # st.markdown("<br><h5>️ 더 많은 추천 장소 ➡️ </h5>", unsafe_allow_html=True)
 
     if st.button("더 많은 추천 장소 보러 가기🫠"):
         go_to_page(2)
@@ -188,21 +191,12 @@ if st.session_state['page'] == 1:
                 <a class="link-button" href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=a1b8c604-0c55-4127-ba19-86d8b36ec947" target="_blank">Link</a>
                 """, unsafe_allow_html=True
             )
+    # if st.button("더 많은 추천 장소 보러 가기🫠"):
+    #     go_to_page(2)
+
 elif st.session_state['page'] == 2:
-    # 배경색 설정 (고정)
-    main_bg_color = "#fffee1"  # 메인 페이지 배경색
-
-    # CSS 스타일을 적용하여 배경 색 변경
-    st.markdown(f"""
-        <style>
-        /* 메인 페이지 배경 색 설정 */
-        .stApp {{
-            background-color: {main_bg_color};
-        }}
-        </style>
-        """, unsafe_allow_html=True)
-
     st.title("그 외 추천 장소")
+    # st.write("This is the content of Page 2.")
     st.title("그리스신화박물관")
     st.write(
         "제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 들어선 그리스신화박물관은 대지 2만평, 연건평 1000평 규모로 유럽 유명 박물관이 소장한 그리스신화 관련 작품만을 엄선해 3년여의 재현 과정을 거쳐 선보이는 세계 최초의 그리스신화 전문 박물관입니다.")
