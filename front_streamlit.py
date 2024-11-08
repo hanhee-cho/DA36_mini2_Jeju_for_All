@@ -45,7 +45,12 @@ if st.session_state['page'] == 1:
     # 콘텐츠 추가 (선택 사항)
     st.title("제주, 어디까지 가봤니?")
     st.markdown("<br>",unsafe_allow_html=True)
-    st.write("제주의 아름다움을 누구나 경험할 수 있도록! 장애 유무와 관계없이 안전하고 편리하게 여행할 수 있는 배리어프리 명소와 여행 팁을 소개합니다. 편안한 제주 여행을 위한 모든 정보를 한눈에 만나보세요.")
+    # st.write("제주의 아름다움을 누구나 경험할 수 있도록! \n장애 유무와 관계없이 안전하고 편리하게 여행할 수 있는 배리어프리 명소와 여행 팁을 소개합니다. \n편안한 제주 여행을 위한 모든 정보를 한눈에 만나보세요.")
+    st.markdown("""
+        ### **Jeju for All 제주의 아름다움을 누구나 경험할 수 있도록!**  
+        장애 유무와 관계없이 안전하고 편리하게 여행할 수 있는 배리어프리 명소와 여행 팁을 소개합니다.  
+        편안한 제주 여행을 위한 모든 정보를 한눈에 만나보세요.
+        """)
     if st.button("나만을 위한 여행지 추천 받기 ❤️"):
         go_to_page(2)
 
@@ -122,20 +127,21 @@ if st.session_state['page'] == 2:
 
     st.subheader('📌 여행객 정보')
     st.markdown(f"""
+    ##### 👤 기본 정보
     - **연령대**: {age_group}
     - **성별**: {gender}
     - **동반객 인원수**: {companion_count}명
     """)
 
     st.markdown(f"""
-    ##### ❤ 여행 스타일
+    ##### 💼 여행 스타일
     - **휴식형(1) vs 체험형(7)**: {activate_score if activate_score else '선택 없음'}
     - **유명관광지(1) vs 나만 알고 싶은 곳(7)**: {famous_score if famous_score else '선택 없음'}
     - **J의 여행(1) vs P의 여행(7)**: {planned_score if planned_score else '선택 없음'}
     - **눈에 담으면 돼(1) vs 남는 건 사진뿐(7)**: {picture_score if picture_score else '선택 없음'}
     """)
     st.markdown(f"""
-    ##### ❤ 기타
+    ##### 🔎 기타
     - **장애인 편의 시설**: {", ".join(selected_barrier_free) if selected_barrier_free else "선택 없음"}
     ---
     """)
