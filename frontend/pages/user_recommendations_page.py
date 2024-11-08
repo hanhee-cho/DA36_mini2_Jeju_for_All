@@ -1,61 +1,12 @@
 import streamlit as st
 
-if 'page' not in st.session_state:
-    st.session_state['page'] = 1
-# 페이지 변경 함수
-def go_to_page(page_num):
-    st.session_state['page'] = page_num
+# 사이드바
+def sidebar_inputs():
+    # 배경색 설정
+    sidebar_bg_color = "#ffe8be"
+    main_bg_color = "#fffee1"
 
-if st.session_state['page'] == 1:
-    # st.image("data/jeju.gif",width=1000)
-    import streamlit as st
-
-    # Google Drive 파일 ID로 GIF 파일의 URL 생성
-    file_id = "1TDDfksny0TpCuM_uzPDYNb0ouwo103pB"  # Google Drive에서 얻은 파일 ID로 변경
-    gif_url = f"https://drive.google.com/uc?export=view&id={file_id}"
-
-    # CSS를 사용하여 배경 GIF 스타일 적용
-    st.markdown(
-        f"""
-        <style>
-        .full-bg {{
-            background-image: url("{gif_url}");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: fixed;
-            width: 80%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-    # full-bg라는 클래스가 있는 div 추가
-    st.markdown('<div class="full-bg"></div>', unsafe_allow_html=True)
-
-    # 콘텐츠 추가 (선택 사항)
-    st.title("제주, 어디까지 가봤니?")
-    st.markdown("<br>",unsafe_allow_html=True)
-    # st.write("제주의 아름다움을 누구나 경험할 수 있도록! \n장애 유무와 관계없이 안전하고 편리하게 여행할 수 있는 배리어프리 명소와 여행 팁을 소개합니다. \n편안한 제주 여행을 위한 모든 정보를 한눈에 만나보세요.")
-    st.markdown("""
-        ### **Jeju for All 제주의 아름다움을 누구나 경험할 수 있도록!**  
-        장애 유무와 관계없이 안전하고 편리하게 여행할 수 있는 배리어프리 명소와 여행 팁을 소개합니다.  
-        편안한 제주 여행을 위한 모든 정보를 한눈에 만나보세요.
-        """)
-    if st.button("나만을 위한 여행지 추천 받기 ❤️"):
-        go_to_page(2)
-
-# 페이지별 내용 표시
-if st.session_state['page'] == 2:
-    # 배경색 설정 (고정)
-    sidebar_bg_color = "#ffe8be"  # 사이드바 배경색
-    main_bg_color = "#fffee1"  # 메인 페이지 배경색
-
-    # CSS 스타일을 적용하여 배경 색 변경
+    # CSS 스타일 적용
     st.markdown(f"""
         <style>
         /* 사이드바 배경 색 설정 */
@@ -71,42 +22,25 @@ if st.session_state['page'] == 2:
 
     # 페이지 제목
     st.title('🍊모두를 위한 제주🍊')
-    st.write('-'*10)
-    # sidebar input
+    st.write('-' * 10)
+
+    # 사이드바 input
     with st.sidebar:
         st.header('여행객 정보를 입력해주세요 😄')
-        # 연령대 선택
-        age_group = st.selectbox(
-            "**연령대**",
-            ("10대", "20대", "30대", "40대", "50대", "60대 이상")
-        )
+        # 사용자 정보 입력
+        age_group = st.selectbox("**연령대**", ("10대", "20대", "30대", "40대", "50대", "60대 이상"))
+        gender = st.radio("**성별**", ("여성", "남성"))
+        companion_count = st.number_input("**동반자 수 (최대 10명)**", min_value=0, max_value=10, value=0, step=1)
 
-        # 성별 선택
-        gender = st.radio(
-            "**성별**",
-            ("여성", "남성")
-        )
-
-        # 동반객 인원수 선택
-        companion_count = st.number_input(
-            "**동반자 수 (최대 10명)**",
-            min_value=0,
-            max_value=10,
-            value=0,
-            step=1
-        )
-
+        # 여행 스타일 선택
         st.header("당신의 여행 스타일은?")
-        # 슬라이더로 1부터 8까지 점수 선택
-        activate_score = st.slider("**휴식형    vs     체험형**", min_value=1, max_value=7)
+        activate_score = st.slider("**휴식형 vs 체험형**", min_value=1, max_value=7)
         famous_score = st.slider("**유명관광지 vs 나만 알고 싶은 곳**", min_value=1, max_value=7)
         planned_score = st.slider("**J의 여행 vs P의 여행**", min_value=1, max_value=7)
         picture_score = st.slider("**눈에 담으면 돼 vs 남는 건 사진뿐**", min_value=1, max_value=7)
 
-
         # Barrier Free 옵션 체크박스
         st.write("**장애인 편의 시설**")
-        # st.subheader("장애인 편의 시설")
         barrier_free_options = {
             "장애인 주차장": st.checkbox("🅿️ 장애인 주차장"),
             "장애인 화장실": st.checkbox("🚻 장애인 화장실"),
@@ -115,11 +49,15 @@ if st.session_state['page'] == 2:
             "점자 안내": st.checkbox("👆 점자 안내"),
             "한국어 음성 안내": st.checkbox("🔈 한국어 음성 안내"),
         }
-    selected_barrier_free = [key for key, value in barrier_free_options.items() if value]
+        selected_barrier_free = [key for key, value in barrier_free_options.items() if value]
 
-    # 첫 번째 구간
-    # 선택된 옵션 - 메인 페이지에 표시
+    # 입력된 데이터를 반환
+    return age_group, gender, companion_count, activate_score, famous_score, planned_score, picture_score, selected_barrier_free
 
+
+# 유저 정보 보여주기
+def display_user_info(age_group, gender, companion_count, activate_score, famous_score, planned_score, picture_score, selected_barrier_free):
+    # 선택된 정보 메인 화면에 표시
     st.subheader('📌 여행객 정보')
     st.markdown(f"""
     ##### 👤 기본 정보
@@ -135,11 +73,19 @@ if st.session_state['page'] == 2:
     - **J의 여행(1) vs P의 여행(7)**: {planned_score if planned_score else '선택 없음'}
     - **눈에 담으면 돼(1) vs 남는 건 사진뿐(7)**: {picture_score if picture_score else '선택 없음'}
     """)
+
     st.markdown(f"""
     ##### 🔎 기타
     - **장애인 편의 시설**: {", ".join(selected_barrier_free) if selected_barrier_free else "선택 없음"}
     ---
     """)
+
+
+def display_recommendations():
+
+    # 페이지 변경 함수
+    def go_to_page(page_num):
+        st.session_state['page'] = page_num
 
     # 첫 번째 컨테이너
     with st.container():
@@ -240,58 +186,11 @@ if st.session_state['page'] == 2:
                 <a class="link-button" href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=a1b8c604-0c55-4127-ba19-86d8b36ec947" target="_blank">Link</a>
                 """, unsafe_allow_html=True
             )
-    if st.button("더 많은 추천 장소 보러 가기➡️"):
-        go_to_page(3)
-elif st.session_state['page'] == 3:
-    # 배경색 설정 (고정)
-    main_bg_color = "#fffee1"  # 메인 페이지 배경색
-
-    # CSS 스타일을 적용하여 배경 색 변경
-    st.markdown(f"""
-        <style>
-        /* 메인 페이지 배경 색 설정 */
-        .stApp {{
-            background-color: {main_bg_color};
-        }}
-        </style>
-        """, unsafe_allow_html=True)
-
-    st.title("Top5 - Top10")
-    st.write('-'*20)
-    with st.container():
-        col1, col2, col3 = st.columns([1, 1, 1])
-        col4, col5, col6 = st.columns([1, 1, 1])
-        with col1:
-            st.image("data/그리스신화박물관.jpg", caption="그리스신화박물관", use_column_width=True)
-            st.write("제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 어쩌구")
-        with col2:
-            st.image("data/그리스신화박물관.jpg", caption="그리스신화박물관", use_column_width=True)
-            st.write("제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 어쩌구")
-        with col3:
-            st.image("data/그리스신화박물관.jpg", caption="그리스신화박물관", use_column_width=True)
-            st.write("제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 어쩌구")
-        with col4:
-            st.image("data/그리스신화박물관.jpg", caption="그리스신화박물관", use_column_width=True)
-            st.write("제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 어쩌구")
-        with col5:
-            st.image("data/그리스신화박물관.jpg", caption="그리스신화박물관", use_column_width=True)
-            st.write("제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 어쩌구")
-        with col6:
-            st.image("data/그리스신화박물관.jpg", caption="그리스신화박물관", use_column_width=True)
-            st.write("제주시 한림읍 금악리 제주-중문간 평화로 중간 교통요충지에 어쩌구")
-
-    st.write('-' * 20)
-    if st.button("이전 페이지"):
-        go_to_page(2)
-    if st.button("다음 페이지"):
-        go_to_page(4)
-
-elif st.session_state['page'] == 4:
-    st.title("배리어프리 어쩌구")
-    st.write("쿠폰을 받아가셔요.")
-    if st.button("처음 페이지"):
-        go_to_page(2)
-    if st.button("이전 페이지"):
-        go_to_page(3)
 
 
+    # 페이지 하단에 양 옆에 버튼 배치
+    col1, col2, col3 = st.columns([2, 2.5, 2])  # 좌측, 중앙, 우측 열로 나누기
+
+    with col3:
+        if st.button("더 많은 추천 장소➡️"):
+            go_to_page("more_recommendations")
