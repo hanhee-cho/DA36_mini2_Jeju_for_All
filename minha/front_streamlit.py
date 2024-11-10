@@ -1,9 +1,6 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib
-import matplotlib.font_manager as fm
 from sklearn.preprocessing import LabelEncoder
 from catboost import Pool
 from sklearn.model_selection import train_test_split
@@ -11,7 +8,6 @@ from catboost import CatBoostRegressor
 import unicodedata
 from itertools import combinations
 from sklearn.metrics.pairwise import cosine_similarity
-from gensim.models import KeyedVectors
 from final import recommend_category
 from final import recommend_user_info
 from final import combine_recommend
@@ -31,12 +27,13 @@ def go_to_page(page_num):
     st.session_state['page'] = page_num
 
 if st.session_state['page'] == 1:
-    gif_path = "data/jeju.gif"
+    # gif_path = "data/jeju.gif"
+    image_path = "data/jeju.jpg"
     st.markdown(
         f"""
         <style>
             .stApp {{
-                background-image: url({gif_path});
+                background-image: url({image_path});
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center center;
