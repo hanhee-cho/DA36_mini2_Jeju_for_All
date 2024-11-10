@@ -1,4 +1,10 @@
 import streamlit as st
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from model import * #TODO model 모듈을 못 불러오는 문제 발생
+
 
 # 사이드바
 def sidebar_inputs():
@@ -92,6 +98,14 @@ def display_recommendations():
     # 페이지 변경 함수
     def go_to_page(page_num):
         st.session_state['page'] = page_num
+
+    # 추천 결과 생성
+    if st.button("🔎 추천 장소 보기"):
+        # recommendations = recommendation_model.combine_recommendations(
+        #         gender, age_group, comp_num, styl5, styl6, styl7, styl8, selected_category, ct_sim, main_df
+        #     )
+        # st.write("추천 결과:", recommendations)
+        st.write("추천 결과: ")
 
     # 첫 번째 컨테이너
     with st.container():

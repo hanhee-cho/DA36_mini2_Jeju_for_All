@@ -1,6 +1,7 @@
 import streamlit as st
 from pages import intro_page, user_recommendations_page, more_recommendations_page, discount_page
 from utils.style import set_background
+from model import *
 
 # 스타일 적용
 set_background() # 배경
