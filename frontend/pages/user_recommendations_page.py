@@ -5,7 +5,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from model import * #TODO model 모듈을 못 불러오는 문제 발생
 
-
 # 사이드바
 def sidebar_inputs():
     # 배경색 설정
@@ -69,14 +68,18 @@ def sidebar_inputs():
 # 유저 정보 보여주기
 def display_user_info(age_group, gender, companion_count, selected_category, activate_score, famous_score, planned_score, picture_score, selected_barrier_free):
     # 선택된 정보 메인 화면에 표시
-    st.subheader('📌 여행객 정보')
+    st.subheader('⚫ 여행객 정보')
     st.markdown(f"""
     ##### 👤 기본 정보
     - **연령대**: {age_group}
     - **성별**: {gender}
     - **동반객 인원수**: {companion_count}명
-    - **장소 카테고리**: {selected_category}
     """)
+
+    st.markdown(f"""
+    ##### 📍 장소 카테고리
+    - {selected_category}
+""")
 
     st.markdown(f"""
     ##### 💼 여행 스타일
