@@ -32,6 +32,10 @@ def sidebar_inputs():
         gender = st.radio("**성별**", ("여성", "남성"))
         companion_count = st.number_input("**동반자 수 (최대 10명)**", min_value=0, max_value=10, value=0, step=1)
 
+        # 카테고리 선택 (중분류)
+        selected_category = st.selectbox("**장소 카테고리**",
+                                         ("🍊관광지", "🏃대형체육시설", "👁️전시/기념관", "⛳대형레저시설", "🌳공원", "🍿영화/연극/공연"))
+
         # 여행 스타일 선택
         st.header("당신의 여행 스타일은?")
         activate_score = st.slider("**휴식형 vs 체험형**", min_value=1, max_value=7)
@@ -52,11 +56,12 @@ def sidebar_inputs():
         selected_barrier_free = [key for key, value in barrier_free_options.items() if value]
 
     # 입력된 데이터를 반환
-    return age_group, gender, companion_count, activate_score, famous_score, planned_score, picture_score, selected_barrier_free
+    # return gender, age_group, comp_num, styl5, styl6, styl7, styl8, selected_category
+    return age_group, gender, companion_count, selected_category, activate_score, famous_score, planned_score, picture_score, selected_barrier_free
 
 
 # 유저 정보 보여주기
-def display_user_info(age_group, gender, companion_count, activate_score, famous_score, planned_score, picture_score, selected_barrier_free):
+def display_user_info(age_group, gender, companion_count, selected_category, activate_score, famous_score, planned_score, picture_score, selected_barrier_free):
     # 선택된 정보 메인 화면에 표시
     st.subheader('📌 여행객 정보')
     st.markdown(f"""
@@ -64,6 +69,7 @@ def display_user_info(age_group, gender, companion_count, activate_score, famous
     - **연령대**: {age_group}
     - **성별**: {gender}
     - **동반객 인원수**: {companion_count}명
+    - **장소 카테고리**: {selected_category}
     """)
 
     st.markdown(f"""
