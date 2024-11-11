@@ -10,36 +10,38 @@ def display():
 
 
     # 로컬 GIF 파일을 base64로 인코딩하여 HTML에 삽입하기
-    # import base64
-    # def get_base64_of_bin_file(bin_file):
-    #     with open(bin_file, 'rb') as f:
-    #         data = f.read()
-    #     return base64.b64encode(data).decode()
-    #
-    # # 로컬 GIF 파일 경로 설정
-    # img_path = './frontend/data/jeju.GIF'  # 사용자의 GIF 파일 경로로 변경
-    # # base64 인코딩한 이미지 삽입
-    # base64_img = get_base64_of_bin_file(img_path)
-    # # CSS를 사용하여 배경 이미지 스타일 적용
-    # st.markdown(
-    #     f"""
-    #         <style>
-    #         .full-bg {{
-    #             background-image: url("data:image/gif;base64,{base64_img}");
-    #             background-size: cover;
-    #             background-position: center;
-    #             background-repeat: no-repeat;
-    #             position: fixed;
-    #             width: 80%;
-    #             height: 100%;
-    #             top: 0;
-    #             left: 0;
-    #             z-index: -1;
-    #         }}
-    #         </style>
-    #         """,
-    #     unsafe_allow_html=True
-    # )
+    st.image("./data/jeju-min.gif", width=1000)
+    import base64
+    # 로컬 GIF 파일을 base64로 인코딩하여 HTML에 삽입하기
+    def get_base64_of_bin_file(bin_file):
+        with open(bin_file, 'rb') as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
+
+    # 로컬 GIF 파일 경로 설정
+    img_path = './data/jeju-min.gif'  # 사용자의 GIF 파일 경로로 변경
+    # base64 인코딩한 이미지 삽입
+    base64_img = get_base64_of_bin_file(img_path)
+    # CSS를 사용하여 배경 이미지 스타일 적용
+    st.markdown(
+        f"""
+            <style>
+            .full-bg {{
+                background-image: url("data:image/gif;base64,{base64_img}");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: fixed;
+                width: 100%;
+                height: 90%;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }}
+            </style>
+            """,
+        unsafe_allow_html=True
+    )
     # full-bg라는 클래스가 있는 div 추가
     st.markdown('<div class="full-bg"></div>', unsafe_allow_html=True)
 

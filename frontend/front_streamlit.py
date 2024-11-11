@@ -1,4 +1,22 @@
+import pandas as pd
 import streamlit as st
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+import matplotlib.font_manager as fm
+from sklearn.preprocessing import LabelEncoder
+from catboost import Pool
+from sklearn.model_selection import train_test_split
+from catboost import CatBoostRegressor
+import unicodedata
+from itertools import combinations
+from sklearn.metrics.pairwise import cosine_similarity
+from gensim.models import KeyedVectors
+
+main_df = pd.read_csv('./data/main_data.csv')
+real_df = pd.read_csv('./data/real_data.csv')
+ct_sim = pd.read_csv('./data/ct_sim.csv', index_col=0)
+df=pd.read_csv('./data/df.csv')
 
 if 'page' not in st.session_state:
     st.session_state['page'] = 1
@@ -7,8 +25,7 @@ def go_to_page(page_num):
     st.session_state['page'] = page_num
 
 if st.session_state['page'] == 1:
-    # st.image("data/jeju.gif",width=1000)
-    import streamlit as st
+    st.image("./data/jeju-min.gif",width=1000)
     import base64
     # 로컬 GIF 파일을 base64로 인코딩하여 HTML에 삽입하기
     def get_base64_of_bin_file(bin_file):
@@ -16,7 +33,7 @@ if st.session_state['page'] == 1:
             data = f.read()
         return base64.b64encode(data).decode()
     # 로컬 GIF 파일 경로 설정
-    img_path = 'data/jeju.gif'  # 사용자의 GIF 파일 경로로 변경
+    img_path = './data/jeju-min.gif'  # 사용자의 GIF 파일 경로로 변경
     # base64 인코딩한 이미지 삽입
     base64_img = get_base64_of_bin_file(img_path)
     # CSS를 사용하여 배경 이미지 스타일 적용
@@ -29,8 +46,8 @@ if st.session_state['page'] == 1:
             background-position: center;
             background-repeat: no-repeat;
             position: fixed;
-            width: 80%;
-            height: 100%;
+            width: 100%;
+            height: 90%;
             top: 0;
             left: 0;
             z-index: -1;
@@ -44,18 +61,17 @@ if st.session_state['page'] == 1:
 
     # 콘텐츠 추가 (선택 사항)
     st.title("제주, 어디까지 가봤니?")
-    st.markdown("<br>",unsafe_allow_html=True)
-    # st.write("제주의 아름다움을 누구나 경험할 수 있도록! \n장애 유무와 관계없이 안전하고 편리하게 여행할 수 있는 배리어프리 명소와 여행 팁을 소개합니다. \n편안한 제주 여행을 위한 모든 정보를 한눈에 만나보세요.")
+    st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("""
         ### **Jeju for All 제주의 아름다움을 누구나 경험할 수 있도록!**  
         장애 유무와 관계없이 안전하고 편리하게 여행할 수 있는 배리어프리 명소와 여행 팁을 소개합니다.  
         편안한 제주 여행을 위한 모든 정보를 한눈에 만나보세요.
-        """)
+    """)
     if st.button("나만을 위한 여행지 추천 받기 ❤️"):
         go_to_page(2)
 
 # 페이지별 내용 표시
-if st.session_state['page'] == 2:
+elif st.session_state['page'] == 2:
     # 배경색 설정 (고정)
     sidebar_bg_color = "#ffe8be"  # 사이드바 배경색
     main_bg_color = "#fffee1"  # 메인 페이지 배경색
@@ -76,6 +92,8 @@ if st.session_state['page'] == 2:
 
     # 페이지 제목
     st.title('🍊모두를 위한 제주🍊')
+    if st.button("시작 화면으로️"):
+        go_to_page(1)
     st.write('-'*10)
     # sidebar input
     with st.sidebar:
@@ -99,6 +117,11 @@ if st.session_state['page'] == 2:
             max_value=10,
             value=0,
             step=1
+        )
+        st.header("어떤 여행지를 원하시나요?")
+        selected_category = st.selectbox(
+            "**여행지 분류**",
+            ("관광지", "대형체육시설", "전시/기념관", "대형레저시설", "공원", "영화/연극/공연")
         )
 
         st.header("당신의 여행 스타일은?")
@@ -132,6 +155,10 @@ if st.session_state['page'] == 2:
     - **성별**: {gender}
     - **동반객 인원수**: {companion_count}명
     """)
+
+    st.markdown(f"""
+    ##### 🎡 여행지
+    - **원하는 분류**: {selected_category if selected_category else '선택 없음'}""")
 
     st.markdown(f"""
     ##### 💼 여행 스타일
