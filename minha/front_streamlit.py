@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-import numpy as np
 from final import recommend_category
 from final import recommend_user_info
 from final import combine_recommend
@@ -21,6 +20,17 @@ def go_to_page(page_num):
     st.session_state['page'] = page_num
 
 if st.session_state['page'] == 1:
+    main_bg_color = "#fffee1"  # 메인 페이지 배경색
+
+    # CSS 스타일을 적용하여 배경 색 변경
+    st.markdown(f"""
+            <style>
+            /* 메인 페이지 배경 색 설정 */
+            .stApp {{
+                background-color: {main_bg_color};
+            }}
+            </style>
+            """, unsafe_allow_html=True)
     st.image("data/jeju.gif", use_column_width=True)
     st.title("제주, 어디까지 가봤니?")
     st.markdown("<br>", unsafe_allow_html=True)
@@ -54,8 +64,8 @@ elif st.session_state['page'] == 2:
 
     # 페이지 제목
     st.title('🍊모두를 위한 제주🍊')
-    if st.button("시작 화면으로️"):
-        go_to_page(1)
+    # if st.button("시작 화면으로️"):
+    #     go_to_page(1)
     st.write('-'*10)
     # sidebar input
     with st.sidebar:
@@ -343,6 +353,16 @@ elif st.session_state['page'] == 3:
 
 
 elif st.session_state['page'] == 4:
+    main_bg_color = "#fffee1"  # 메인 페이지 배경색
+    # CSS 스타일을 적용하여 배경 색 변경
+    st.markdown(f"""
+                <style>
+                /* 메인 페이지 배경 색 설정 */
+                .stApp {{
+                    background-color: {main_bg_color};
+                }}
+                </style>
+                """, unsafe_allow_html=True)
     st.header("🍊Jeju for All에서 할인 혜택 받으세요~🍊 ")
     col1, col2, col3 = st.columns([1, 4, 1])
     with col2:
