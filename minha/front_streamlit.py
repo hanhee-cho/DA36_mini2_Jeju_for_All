@@ -31,7 +31,8 @@ if st.session_state['page'] == 1:
             }}
             </style>
             """, unsafe_allow_html=True)
-    st.image("data/jeju.gif", use_column_width=True)
+    # st.image("data/jeju.gif", use_column_width=True)
+    st.image("data/jeju.gif", use_container_width=True)
     st.title("제주, 어디까지 가봤니?")
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("""
@@ -173,7 +174,8 @@ elif st.session_state['page'] == 2:
                     with st.container():
                         col1, col2 = st.columns([1,1.2])
                         with col1:
-                            st.image(photo, use_column_width=True, caption=place_name)
+                            # st.image(photo, use_column_width=True, caption=place_name)
+                            st.image(photo, use_container_width=True, caption=place_name)
                         with col2:
                             st.markdown(f"#### Top{idx + 1}.")
                             st.markdown(f"##### {place_name}")
@@ -206,7 +208,8 @@ elif st.session_state['page'] == 2:
                     with st.container():
                         col1, col2=st.columns([1,2])
                         with col1:
-                            st.image(photo, use_column_width=True, caption=place_name)
+                            # st.image(photo, use_column_width=True, caption=place_name)
+                            st.image(photo, use_container_width=True, caption=place_name)
                         with col2:
                             st.markdown(f"#### Top{idx + 1}.")
                             st.markdown(f"##### {place_name}")
@@ -285,7 +288,8 @@ elif st.session_state['page'] == 3:
                     st.write(f"*({address})*")
                     image = Image.open(photo)
                     resized_image = image.resize((230, 230))
-                    st.image(resized_image, use_column_width=True)
+                    # st.image(resized_image, use_column_width=True)
+                    st.image(resized_image, use_container_width=True)
                     st.write(description)
                     st.markdown(
                         f"""
@@ -314,7 +318,8 @@ elif st.session_state['page'] == 3:
                     st.write(f"*({address})*")
                     image = Image.open(photo)
                     resized_image = image.resize((230, 230))
-                    st.image(resized_image, use_column_width=True)
+                    # st.image(resized_image, use_column_width=True)
+                    st.image(resized_image, use_container_width=True)
                     st.write(description)
                     st.markdown(
                         f"""
