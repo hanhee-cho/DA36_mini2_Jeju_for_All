@@ -2,4 +2,4 @@ pandas
 streamlit
 numpy
 scikit-learn
-catboost==1.0.4
+catboost

@@ -1,13 +1,6 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
-# from sklearn.preprocessing import LabelEncoder
-# from catboost import Pool
-# from sklearn.model_selection import train_test_split
-# from catboost import CatBoostRegressor
-# import unicodedata
-# from itertools import combinations
-# from sklearn.metrics.pairwise import cosine_similarity
 from final import recommend_category
 from final import recommend_user_info
 from final import combine_recommend
@@ -45,7 +38,7 @@ if st.session_state['page'] == 1:
         </style>
         """, unsafe_allow_html=True
     )
-
+    st.image("data/jeju.jpg", use_column_width=True)
     st.title("제주, 어디까지 가봤니?")
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("""
