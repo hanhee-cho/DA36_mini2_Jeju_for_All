@@ -6,6 +6,7 @@ from final import recommend_user_info
 from final import combine_recommend
 from final import final_recommend
 import os
+from PIL import Image
 
 main_df = pd.read_csv('./data/main_data.csv')
 real_df = pd.read_csv('./data/real_data.csv')
@@ -272,7 +273,9 @@ elif st.session_state['page'] == 3:
                     st.markdown(f"#### Top{idx + 5}.")
                     st.markdown(f"**{place_name}**")
                     st.write(f"*({address})*")
-                    st.image(photo, use_column_width=True, width=200)
+                    image = Image.open(photo)
+                    resized_image = image.resize((230, 230))
+                    st.image(resized_image, use_column_width=True)
                     st.write(description)
                     st.markdown(
                         f"""
@@ -299,7 +302,9 @@ elif st.session_state['page'] == 3:
                     st.markdown(f"#### Top{idx + 5}.")
                     st.markdown(f"**{place_name}**")
                     st.write(f"*({address})*")
-                    st.image(photo, use_column_width=True, width=200)
+                    image = Image.open(photo)
+                    resized_image = image.resize((230, 230))
+                    st.image(resized_image, use_column_width=True)
                     st.write(description)
                     st.markdown(
                         f"""
