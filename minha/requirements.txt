@@ -31,7 +31,7 @@ defusedxml==0.7.1
 entrypoints==0.4
 exceptiongroup==1.2.2
 executing==2.1.0
-fastjsonschema==2.20.0
+
 fonttools==4.54.1
 fqdn==1.5.1
 frozendict==2.4.6
@@ -88,7 +88,6 @@ multitasking==0.0.9
 munkres==1.1.4
 narwhals==1.13.1
 nbclient==0.10.0
-nbconvert==7.16.4
 nbformat==5.10.4
 nest_asyncio==1.6.0
 networkx==3.4.2
@@ -125,7 +124,7 @@ PySocks==1.7.1
 python-dateutil==2.9.0
 python-json-logger==2.0.7
 pytz==2024.1
-pywin32==306
+pywin32>=305,<306
 pywinpty==2.0.13
 PyYAML==6.0.2
 pyzmq==26.2.0
@@ -140,7 +139,6 @@ scikit-learn==1.5.2
 scipy==1.13.1
 seaborn==0.13.2
 Send2Trash==1.8.3
-shiboken6==6.7.3
 six==1.16.0
 smart_open==7.0.5
 smmap==5.0.0
