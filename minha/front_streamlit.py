@@ -20,25 +20,7 @@ def go_to_page(page_num):
     st.session_state['page'] = page_num
 
 if st.session_state['page'] == 1:
-    # gif_path = "data/jeju.gif"
-    image_path = "data/jeju.jpg"
-    st.markdown(
-        f"""
-        <style>
-            .stApp {{
-                background-image: url({image_path});
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center center;
-                min-height: 100vh;  /* 페이지 전체 높이 설정 */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }}
-        </style>
-        """, unsafe_allow_html=True
-    )
-    st.image("data/jeju.jpg", use_column_width=True)
+    st.image("data/jeju.gif", use_column_width=True)
     st.title("제주, 어디까지 가봤니?")
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("""
