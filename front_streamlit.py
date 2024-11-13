@@ -163,12 +163,28 @@ elif st.session_state['page'] == 2:
                                          filter_klang_vic_guid_at=filter_klang_vic_guid_at)
 
             st.session_state['place_list'] = place_list
-
             for idx, place_name in enumerate(place_list):
-                photo = df.loc[df['place'] == place_name, 'photo'].values[0]
-                address = df.loc[df['place'] == place_name, 'address'].values[0]
-                description = df.loc[df['place'] == place_name, 'description'].values[0]
-                link = df.loc[df['place'] == place_name, 'link'].values[0]
+                if (df['place'] == place_name).any():
+                    photo = df.loc[df['place'] == place_name, 'photo'].values[0]
+                else:
+                    photo = "data_2/11.jpg"
+                if (df['place'] == place_name).any():
+                    address = df.loc[df['place'] == place_name, 'address'].values[0]
+                else:
+                    address = "제주도 어딘가"
+                if (df['place'] == place_name).any():
+                    description = df.loc[df['place'] == place_name, 'description'].values[0]
+                else:
+                    description = f"{place_name}에 대한 설명 이러쿵 저러쿵"
+                if (df['place'] == place_name).any():
+                    link = df.loc[df['place'] == place_name, 'link'].values[0]
+                else:
+                    link = 'http://..'
+
+                # photo = df.loc[df['place'] == place_name, 'photo'].values[0]
+                # address = df.loc[df['place'] == place_name, 'address'].values[0]
+                # description = df.loc[df['place'] == place_name, 'description'].values[0]
+                # link = df.loc[df['place'] == place_name, 'link'].values[0]
                 if idx==0:
                     with st.container():
                         col1, col2 = st.columns([1,1.2])
@@ -274,10 +290,26 @@ elif st.session_state['page'] == 3:
         col4, col5, col6 = st.columns([1, 1, 1])  # 두 번째 행
 
         for idx, place_name in enumerate(others):
-            photo = df.loc[df['place'] == place_name, 'photo'].values[0]
-            address = df.loc[df['place'] == place_name, 'address'].values[0]
-            description = df.loc[df['place'] == place_name, 'description'].values[0]
-            link = df.loc[df['place'] == place_name, 'link'].values[0]
+            if (df['place'] == place_name).any():
+                photo=df.loc[df['place'] == place_name, 'photo'].values[0]
+            else:
+                photo = "data_2/11.jpg"
+            if (df['place']==place_name).any():
+                address=df.loc[df['place'] == place_name, 'address'].values[0]
+            else:
+                address="제주도 어딘가"
+            if (df['place']==place_name).any():
+                description=df.loc[df['place'] == place_name, 'description'].values[0]
+            else:
+                description=f"{place_name}에 대한 설명 이러쿵 저러쿵"
+            if (df['place']==place_name).any():
+                link=df.loc[df['place'] == place_name, 'link'].values[0]
+            else:
+                link='http://..'
+            # photo = df.loc[df['place'] == place_name, 'photo'].values[0]
+            # address = df.loc[df['place'] == place_name, 'address'].values[0]
+            # description = df.loc[df['place'] == place_name, 'description'].values[0]
+            # link = df.loc[df['place'] == place_name, 'link'].values[0]
 
             # 첫 번째 행: col1, col2, col3에 배치
             if idx < 3:
