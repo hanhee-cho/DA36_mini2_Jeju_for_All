@@ -1,3 +1,4 @@
+streamlit==1.39.0
 catboost==1.2.7
 gensim==4.3.3
 numpy==1.23.0
@@ -6,5 +7,5 @@ pip==24.3.1
 pywin32>=305,<306
 scikit-learn==1.5.2
 seaborn==0.13.2
-streamlit==1.39.0
+setuptools
 wheel==0.45.0
