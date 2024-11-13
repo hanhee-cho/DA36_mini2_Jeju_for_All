@@ -334,7 +334,7 @@ elif st.session_state['page'] == 3:
                             text-decoration: none;
                             border-radius: 6px;
                             font-size: 12px;
-                        }}
+                        }} 
                         .link-button:hover {{
                             background-color: #5fd6f3;
                         }}
